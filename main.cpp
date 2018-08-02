@@ -11,7 +11,7 @@
 #include <kcl.h>
 //#include "FileManager.h"
 //#include "RequestObject.h"
-
+//ignore
 //#define STOP_DOWNLOAD_AFTER_THIS_MANY_BYTES         6000
 #define MINIMAL_PROGRESS_FUNCTIONALITY_INTERVAL     3
 
