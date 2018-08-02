@@ -2,7 +2,7 @@
 #define __REQUEST_OBJECT_H__
 #include <stdio.h>
 #include <curl/curl.h>
-
+//for test only
 class ConfigManager;
 
 struct myprogress {
