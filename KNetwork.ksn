@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution ToolsVersion="1.0" xmlns="http://schemas.kinggrid.com/developer/kpower/2016">
+	<Project name="KNetwork" src="KNetwork.kproj" guid="{C30AAC68-A200-499C-849F-AB646B332125}" default="true">
+	</Project>
+	<!--Project name="test" src="test.kproj" guid="{F88D0FD3-4ECC-448A-ADD0-740D87518BD2}" default="true">
+	</Project-->
+</Solution>
+

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="1.0" xmlns="http://schemas.kinggrid.com/developer/kpower/2016">
+
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C30AAC68-A200-499C-849F-AB646B332125}</ProjectGuid>
+    <RootNamespace>KNetwork</RootNamespace>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+
+  <ItemDefinitionGroup>
+    <General>
+      <OutputDir>$(ProjectDir)../../output/$(Configuration)/$(Platform)/$(ProjectName)/</OutputDir>
+      <TargetName>$(ProjectName)</TargetName>
+      <TargetExt></TargetExt>
+    </General>
+    <Debug>
+      <Command>$(TargetPath)</Command>
+      <CommandArguments></CommandArguments>
+      <WorkingDirectory>$(ProjectDir)</WorkingDirectory>
+    </Debug>
+    <Link>
+      <OutputFile>$(OutputDir)$(ProjectName).$(TargetExt)</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  
+  
+  <ItemDefinitionGroup Condition="Debug|Win32">
+    <General>
+      <TargetExt>dll</TargetExt>
+    </General>
+    <Compile>
+      <AdditionalOptions>-DKGKEY_EXPORT;-g;-ggdb;-std=c++11;-I$(ProjectDir)../../include/;-I$(ProjectDir)../../include/kcl;-I$(ProjectDir)../../include/klib</AdditionalOptions>
+    </Compile>
+    <Link>
+      <OutputFile>$(ProjectDir)../../bin/BinD/Win32/bin/knetwork.dll</OutputFile>      
+      <AdditionalOptions>-L$(ProjectDir)../../bin/BinD/Win32/bin;-lkcl;-lklib;-llibcurl_imp;-loleaut32</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  
+  <ItemDefinitionGroup Condition="Release|Win32">
+    <General>
+      <TargetExt>dll</TargetExt>
+    </General>
+    <Compile>
+      <AdditionalOptions>-DKG_OS_WINDOWS;-DKG_OS_WIN32;-DKNETWORK_EXPORT;-std=c++11;-I$(ProjectDir)../../include/;-I$(ProjectDir)../kcl;-I$(ProjectDir)../klib</AdditionalOptions>
+    </Compile>
+    <Link>
+      <OutputFile>$(ProjectDir)../../bin/Bin/Win32/bin/knetwork.dll</OutputFile>      
+      <AdditionalOptions>-L$(ProjectDir)../../bin/Bin/Win32/bin;-lkcl;-lklib;-llibcurl;-loleaut32;-lcomdlg32</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemDefinitionGroup Condition="Release|Win64">
+      <General>
+          <TargetExt>dll</TargetExt>
+      </General>
+      <Compile>
+          <AdditionalOptions>-DKG_OS_WINDOWS;-DKG_OS_WIN64;-DKNETWORK_EXPORT;-std=c++11;-m64;-I$(ProjectDir)../../include/;-I$(ProjectDir)../kcl;-I$(ProjectDir)../klib</AdditionalOptions>
+      </Compile>
+      <Link>
+          <OutputFile>$(ProjectDir)../../bin/Bin/Win64/bin/knetwork.dll</OutputFile>
+          <AdditionalOptions>-L$(ProjectDir)../../bin/Bin/Win64/bin;-lkcl;-lklib;-lcurl;-loleaut32;-lcomdlg32</AdditionalOptions>
+      </Link>
+  </ItemDefinitionGroup>
+
+  <!--ItemDefinitionGroup Condition="Release|Win32">
+      <General>
+          <TargetExt>dll</TargetExt>
+      </General>
+      <Compile>
+          <AdditionalOptions>-DKGKEY_EXPORT;-std=c++11;-I$(ProjectDir)../../include/kcl;-I$(ProjectDir)../../include/klib</AdditionalOptions>
+      </Compile>
+      <Link>
+          <OutputFile>$(ProjectDir)../../bin/Bin/Win32/bin/kgkey.dll</OutputFile>
+          <AdditionalOptions>-L$(ProjectDir)../../bin/Bin/Win32/bin;-lkcl;-lklib;-loleaut32</AdditionalOptions>
+      </Link>
+  </ItemDefinitionGroup-->
+  
+  <ItemDefinitionGroup Condition="Debug|Unix32">
+    <General>
+      <TargetExt>so</TargetExt>
+    </General>    
+    <Compile>
+      <AdditionalOptions>-DKGKEY_EXPORT;-std=c++11;-I$(ProjectDir)../../include/kcl;-I$(ProjectDir)../../include/klib</AdditionalOptions>
+    </Compile>
+    <Link>
+      <OutputFile>$(ProjectDir)../../bin/BinD/Unix32/lib/libknetwork.so</OutputFile>
+      <AdditionalOptions>-L$(ProjectDir)../../bin/BinD/Unix32/lib;-lkcl;-lklib;-ldl</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+
+  <ItemGroup>
+    <ClCompile Include="KNetwork.h" />
+    <ClCompile Include="ConfigManager.cpp" />
+    <ClCompile Include="ConfigManager.h" />
+    <ClCompile Include="DownloadManager.cpp" />
+    <ClCompile Include="DownloadManager.h" />
+    <ClCompile Include="FileManager.cpp" />
+    <ClCompile Include="FileManager.h" />
+    <ClCompile Include="RequestManager.cpp" />
+    <ClCompile Include="RequestManager.h" />
+    <ClCompile Include="RequestObject.cpp" />
+	  <ClCompile Include="RequestObject.h" />
+    <ClCompile Include="KNetworkUtil.h" />
+  
+    <ClCompile Include="TaskObject.cpp" />
+    <ClCompile Include="TaskObject.h" />
+    <ClCompile Include="UploadManager.cpp" />
+    <ClCompile Include="UploadManager.h" />
+    <ClCompile Include="KNetworkUtil.cpp" />
+
+    <ClCompile Include="ClassFactory.h" />
+    <ClCompile Include="ClassFactory.cpp" />
+    <ClCompile Include="KNetwork.rc" />
+  </ItemGroup>
+</Project>
+
